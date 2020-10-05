@@ -18,10 +18,12 @@ docker-compose pull
 echo "==> Bring Up Services"
 docker-compose up -d
 
+curl -i http://127.1:8086/
 # FIXME: it's not a good idea to hard-code fixed value here
 #        but... why not take a cup of coffee :-)
 echo "==> Waiting for Services Ready"
-sleep 60
+sleep 15
+curl -i http://127.1:8086/
 
 echo "==> Initial Database"
 docker exec -it influxdb                 \
